@@ -1,12 +1,12 @@
 const Footer = () => {
     return (
-        <footer className="bg-dark fixed-bottom text-light text-center p-3">
-            <div className="container">
-                <span className="text-light">Clinic App 2023</span>
-            </div>
-        </footer>
+    <footer className="bg-dark fixed-bottom text-light text-center p-3 mt-5">
+        <div className="container">
+            <span className="text-light">Clinic App 2023</span>
+        </div>
+    </footer>
 
-    )
+)
 }
 
 export default Footer;

@@ -13,6 +13,7 @@ import Profile from "./pages/Profile";
 import ProtectedRoutes from "./component/ProtectedRoutes";
 import {PersistGate} from "redux-persist/integration/react";
 import Layout from "./pages/Layout";
+import Logout from "./pages/Logout";
 
 export default function App() {
     return (
@@ -22,6 +23,7 @@ export default function App() {
                 <Route element={<ProtectedRoutes/>}>
                     <Route path="/" element={<Layout><Home/></Layout>}/>
                     <Route path="/profile" element={<Layout><Profile/></Layout>}/>
+                    <Route path={"/logout"} element={<Logout/>}/>
                 </Route>
                 <Route path="*" element={<NoPage/>}/>
             </Routes>
@@ -31,13 +33,11 @@ export default function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <App/>
             </PersistGate>
         </Provider>
-    </React.StrictMode>
 );
 
 reportWebVitals();

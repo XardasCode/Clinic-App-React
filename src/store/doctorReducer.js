@@ -20,9 +20,10 @@ export const doctorReducer = (state = defaultState, action) => {
                 doctors: state.doctors.filter(doctor => doctor.id !== action.payload)
             }
         case ADD_MANY_DOCTORS:
+            // delete all doctors and add new
             return {
                 ...state,
-                doctors: [...state.doctors, ...action.payload]
+                doctors: action.payload
             }
         default:
             return state
