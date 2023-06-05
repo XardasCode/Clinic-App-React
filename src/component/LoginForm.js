@@ -65,7 +65,6 @@ const LoginForm = () => {
             {renderError()}
             <div className="d-grid gap-2 col-6 mx-auto">
                 {loading ? (
-                    // center spinner
                     <ReactBootStrap.Spinner animation="border" variant="primary" className="mx-auto">
                         <span className="visually-hidden">Loading...</span>
                     </ReactBootStrap.Spinner>

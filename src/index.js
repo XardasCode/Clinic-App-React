@@ -14,16 +14,24 @@ import ProtectedRoutes from "./component/ProtectedRoutes";
 import {PersistGate} from "redux-persist/integration/react";
 import Layout from "./pages/Layout";
 import Logout from "./pages/Logout";
+import Registration from "./pages/Registration";
+import CreateAppointment from "./pages/CreateAppointment";
+import Appointments from "./pages/Appointments";
+import Appointment from "./pages/Appointment";
 
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={<Layout><Login/></Layout>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/registration" element={<Registration/>}/>
                 <Route element={<ProtectedRoutes/>}>
                     <Route path="/" element={<Layout><Home/></Layout>}/>
                     <Route path="/profile" element={<Layout><Profile/></Layout>}/>
                     <Route path={"/logout"} element={<Logout/>}/>
+                    <Route path={"/create-appointment/:id"} element={<Layout><CreateAppointment/></Layout>}/>
+                    <Route path={"/appointments"} element={<Layout><Appointments/></Layout>}/>
+                    <Route path={"/appointment/:id"} element={<Layout><Appointment/></Layout>}/>
                 </Route>
                 <Route path="*" element={<NoPage/>}/>
             </Routes>
@@ -33,11 +41,11 @@ export default function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <App/>
-            </PersistGate>
-        </Provider>
+    <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+            <App/>
+        </PersistGate>
+    </Provider>
 );
 
 reportWebVitals();
